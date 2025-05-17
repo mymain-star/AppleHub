@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Официальный магазин техники Apple в Нефтеюганске. iPhone, MacBook, AirPods и аксессуары с гарантией.">
+    <title>AppleHub - Официальный магазин техники Apple в Нефтеюганске</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3b30;
+            --primary-light: #ff5e55;
+            --primary-dark: #e0352b;
+            --secondary: #000;
+            --text: #333;
+            --text-light: #666;
+            --bg: #f5f5f7;
+            --white: #ffffff;
+            --gray-light: #e1e1e3;
+            --apple-gradient: linear-gradient(135deg, #000000, #1a1a1a);
+        }
+        
+        body {
+            font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, 20px) rotate(5deg); }
+            100% { transform: translate(10px, -10px) rotate(-5deg); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Главная секция */
+        #home {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 60px 20px;
+            background: var(--apple-gradient);
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,59,48,0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0,122,255,0.15) 0%, transparent 30%);
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        /* Декоративные элементы фона */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            filter: blur(60px);
+        }
+        
+        .circle-1 {
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            left: -100px;
+            background: radial-gradient(circle, var(--primary), transparent);
+            animation: float 15s ease-in-out infinite alternate;
+        }
+        
+        .circle-2 {
+            width: 700px;
+            height: 700px;
+            bottom: -200px;
+            right: -200px;
+            background: radial-gradient(circle, rgba(0,122,255,0.3), transparent);
+            animation: float 20s ease-in-out infinite alternate-reverse;
+        }
+        
+        .circle-3 {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            right: 20%;
+            background: radial-gradient(circle, rgba(52,199,89,0.2), transparent);
+            animation: float 12s ease-in-out infinite alternate;
+        }
+        
+        .bg-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 0 0 15px;
+            letter-spacing: -1.5px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(90deg, #fff, #e1e1e3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 0 0 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background-color: var(--white);
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn-primary:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+        }
+        
+        .hero-image {
+            position: relative;
+            margin-top: 50px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            filter: drop-shadow(0 25px 40px rgba(0,0,0,0.6));
+            animation: pulse 2s ease infinite;
+        }
+        
+        /* Features section */
+        .features {
+            padding: 100px 20px;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--white);
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin: 0 0 15px;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: rgba(255,59,48,0.2);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(255,59,48,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 15px 30px rgba(255,59,48,0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin: 0 0 15px;
+            color: var(--secondary);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Products preview */
+        .products-preview {
+            padding: 100px 20px;
+            background-color: var(--bg);
+            position: relative;
+        }
+        
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .products-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        
+        .products-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Каталог товаров */
+        .catalog {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 18px 28px;
+            border-radius: 12px;
+            margin: 35px 0 25px 0;
+            font-size: 1.4em;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .catalog::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .catalog:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .product {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 14px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .product:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .product img {
+            max-width: 100%;
+            height: 220px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        
+        .product:hover img {
+            transform: scale(1.05);
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3em;
+            margin: 15px 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .price::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .product:hover .price::after {
+            transform: scaleX(1);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,59,48,0.3);
+        }
+        
+        .btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .product .btn {
+            width: 80%;
+        }
+        
+        /* CTA section */
+        .cta {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--secondary), #222);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, var(--secondary), #222);
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin: 0 0 40px;
+            opacity: 0.9;
+        }
+        
+        /* Контакты */
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 35px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-info:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .contact-info h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .contact-info p {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .contact-info p strong {
+            color: var(--text);
+        }
+        
+        .contact-info p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            opacity: 0.7;
+        }
+        
+        .contact-info p:nth-child(2)::before {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+        }
+        
+        .contact-info p:nth-child(3)::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.03-.1.03-.19-.27-.42-.1-.17.1-2.78 1.93-3.94 2.84-.53.4-1.01.4-1.47.13-.51-.3-.96-1.03-1.47-1.68-.56-.71-1.08-1.42-1.7-2.03-.63-.63-1.27-.95-1.93-.96-.6-.01-1.17.14-1.67.46-.56.36-.67.58-.67.58s-.18.54.42.93c.33.22.75.5 1.25.82.43.28.86.56 1.23.9.41.38.84 1.13 1.29 1.11.38-.01 1.04-.67 1.61-1.27.44-.46.82-1.03 1.11-1.59.1-.2.19-.37.34-.25.18.14.7.83 1.13 1.25.41.4.82.84 1.25 1.25.38.37.81.78 1.33 1.13.5.34 1.1.53 1.57.56.6.04 1.2-.17 1.68-.46.5-.3 1.17-.95 1.34-1.28.17-.33.34-1.17.38-1.51.04-.34 0-.55-.08-.75-.08-.2-.68-.5-1.39-.8z'/%3E%3C/svg%3E");
+}
+        
+        .contact-info p:nth-child(4)::before {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z'/%3E%3C/svg%3E");
+        }
+        
+        .contact-info p:nth-child(5)::before {
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E");
+        }
+        
+        /* Header */
+        header {
+            background: rgba(0,0,0,0.9);
+            color: var(--white);
+            padding: 18px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(0,0,0,0.95);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav a {
+            color: var(--white);
+            margin: 0 22px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--white);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-btn {
+            position: relative;
+            margin-left: auto;
+            margin-right: 30px;
+            background: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,59,48,0.3);
+        }
+        
+        .cart-count {
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            margin-left: 5px;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 35px auto;
+            overflow: hidden;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            color: inherit;
+            font-weight: 600;
+        }
+        
+        h3 {
+            margin: 10px 0;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        p {
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: modalopen 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+        
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px)}
+            to {opacity: 1; transform: translateY(0)}
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: var(--text);
+        }
+        
+        .cart-items {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding-right: 10px;
+        }
+        
+        .cart-items::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .cart-items::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .cart-items::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-right: 15px;
+            border-radius: 8px;
+            background: var(--bg);
+            padding: 5px;
+        }
+        
+        .cart-item-info {
+            flex-grow: 1;
+        }
+        
+        .cart-item-info h4 {
+            margin: 0 0 5px 0;
+        }
+        
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff3b30;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .remove-item:hover {
+            transform: rotate(90deg);
+            background: rgba(255,59,48,0.1);
+        }
+        
+        .cart-total {
+            font-size: 1.2em;
+            font-weight: 700;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gray-light);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--secondary);
+            color: var(--white);
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--secondary);
+            transform: skewY(-2deg);
+            z-index: 1;
+        }
+        
+        footer p {
+            color: rgba(255,255,255,0.7);
+            margin: 10px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Анимации при прокрутке */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                margin: 5px;
+                font-size: 15px;
+                padding: 6px 8px;
+            }
+            
+            .cart-btn {
+                margin: 10px auto;
+                order: 3;
+            }
+            
+            .container {
+                width: 92%;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .product img {
+                height: 180px;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+            
+            .contact-info p {
+                padding-left: 25px;
+            }
+            
+            .contact-info p::before {
+                width: 18px;
+                height: 18px;
+                top: 3px;
+            }
+        }
+        /* Стили для строки поиска */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: relative;
+}
+
+#searchInput {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--gray-light);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    width: 200px;
+    transition: all 0.3s ease;
+    background-color: rgba(255,255,255,0.1);
+    color: var(--white);
+    border-color: rgba(255,255,255,0.2);
+}
+
+#searchInput::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+#searchInput:focus {
+    outline: none;
+    width: 250px;
+    background-color: rgba(255,255,255,0.2);
+    border-color: var(--primary);
+}
+
+#searchButton {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#searchButton svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Адаптивность для поиска */
+@media (max-width: 768px) {
+    .search-container {
+        order: 2;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    #searchInput {
+        width: 100%;
+    }
+    
+    #searchInput:focus {
+        width: 100%;
+    }
+    
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* Стили для сообщения "нет результатов" */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: var(--bg);
+    border-radius: 14px;
+    margin-top: 20px;
+}
+
+.no-results p {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.no-results .btn {
+    margin: 0 auto;
+}
+.highlight {
+    background-color: #ffeb3b;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+    </style>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#contact">Контакты</a>
+            
+            <!-- Добавляем строку поиска -->
+            <div class="search-container">
+                <input type="text" placeholder="Поиск товаров..." id="searchInput">
+                <button id="searchButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="cart-btn" id="cartButton">
+                Корзина <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+<section id="home">
+    <div class="hero">
+        <div class="hero-content">
+            <h1>AppleHub</h1>
+            <h2>Официальный магазин Apple в Нефтеюганске</h2>
+            
+            <div class="hero-buttons">
+                <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+                <a href="#contact" class="btn btn-secondary">Контакты</a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://pngicon.ru/file/uploads/apple-1.png" height="150" width="150" alt="Apple Logo">
+            </div>
+        </div>
+        
+        <div class="hero-bg-elements">
+            <div class="bg-circle circle-1"></div>
+            <div class="bg-circle circle-2"></div>
+            <div class="bg-circle circle-3"></div>
+            <div class="bg-blur"></div>
+        </div>
+    </div>
+    
+    <!-- Преимущества -->
+    <div class="features">
+        <div class="features-container">
+            <div class="section-title animate-on-scroll">
+                <h2>Почему выбирают AppleHub</h2>
+                
+<p>Все товары поставляются напрямую от Apple с официальной гарантией</p>
+</div>
+
+<div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
+    <div class="feature-icon">$</div>
+    <h3>Лучшие цены</h3>
+    <p>Гарантируем конкурентные цены и специальные предложения для наших клиентов</p>
+</div>
+
+<div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
+    <div class="feature-icon">🛡️</div>
+    <h3>Гарантия 1 год</h3>
+    <p>Официальная гарантия на всю технику Apple с возможностью расширенного обслуживания</p>
+</div>
+</div>
+</div>
+
+<!-- Каталог товаров -->
+<section id="catalog" class="container">
+<div class="catalog animate-on-scroll">
+<h2>Каталог товаров</h2>
+</div>
+
+<div class="product-grid">
+<!-- iPhone 15 -->
+<div class="product animate-on-scroll" data-id="1" data-name="iPhone 15" data-price="70000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-blue?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923777973">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch-blue?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692923777973" alt="iPhone 15">
+    <h3>iPhone 15</h3>
+    <p>Новый iPhone с процессором A16 Bionic, динамическим островом и 48 МП камерой.</p>
+    <p class="price">70,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- iPhone 15 Pro -->
+<div class="product animate-on-scroll" data-id="2" data-name="iPhone 15 Pro" data-price="110000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-1inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009283474">
+    <img src="https://avatars.mds.yandex.net/get-mpic/12636049/2a0000018dfc327c007abd9870bfd53fb99e/optimize">
+    <h3>iPhone 15 Pro</h3>
+    <p>Титановый корпус, A17 Pro, 48 МП Pro-камера с 5x оптическим зумом.</p>
+    <p class="price">110,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- iPhone 15 Pro Max -->
+<div class="product animate-on-scroll" data-id="3" data-name="iPhone 15 Pro Max" data-price="120000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009281808">
+    <img src="https://avatars.mds.yandex.net/get-mpic/1937077/2a000001919ed09602ec0650cd69aec3a513/optimize">
+    <h3>iPhone 15 Pro Max</h3>
+    <p>6.7" дисплей ProMotion, 5x телеобъектив, самый мощный процессор Apple.</p>
+    <p class="price">120,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- iPhone 14 -->
+<div class="product animate-on-scroll" data-id="4" data-name="iPhone 14" data-price="60000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-product-red?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661027200285">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch-product-red?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661027200285" alt="iPhone 14">
+    <h3>iPhone 14</h3>
+    <p>Процессор A15 Bionic, улучшенная фронтальная камера, автономность до 20 часов.</p>
+    <p class="price">60,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- iPhone 14 Pro -->
+<div class="product animate-on-scroll" data-id="5" data-name="iPhone 14 Pro" data-price="80000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-1inch-deeppurple?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663703841892">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-finish-select-202209-6-1inch-deeppurple?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1663703841892" alt="iPhone 14 Pro">
+    <h3>iPhone 14 Pro</h3>
+    <p>Dynamic Island, Always-On дисплей, 48 МП основная камера, A16 Bionic.</p>
+    <p class="price">80,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- iPhone 14 Pro Max -->
+<div class="product animate-on-scroll" data-id="6" data-name="iPhone 14 Pro Max" data-price="95000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-max-finish-select-202209-6-7inch-spaceblack?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661960395644">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-max-finish-select-202209-6-7inch-spaceblack?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1661960395644" alt="iPhone 14 Pro Max">
+    <h3>iPhone 14 Pro Max</h3>
+    <p>Флагман с 6.7" Super Retina XDR дисплеем и рекордной автономностью.</p>
+    <p class="price">95,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- MacBook Pro 14" M2 -->
+<div class="product animate-on-scroll" data-id="7" data-name="MacBook Pro 14\" M2" data-price="200000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-spacegray-select-202301?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1671304677377">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-spacegray-select-202301?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1671304677377" alt="MacBook Pro">
+    <h3>MacBook Pro 14" M2</h3>
+    <p>Чип M2 Pro, 16 ГБ RAM, 512 ГБ SSD, Liquid Retina XDR дисплей.</p>
+    <p class="price">200,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- AirPods Pro (2nd gen) -->
+<div class="product animate-on-scroll" data-id="8" data-name="AirPods Pro (2nd gen)" data-price="25000" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MTJV3?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1694014871985">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MTJV3?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1694014871985" alt="AirPods Pro">
+    <h3>AirPods Pro (2nd gen)</h3>
+    <p>Активное шумоподавление, пространственное аудио, до 6 часов работы.</p>
+    <p class="price">25,000 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- Picun F6 -->
+<div class="product animate-on-scroll" data-id="9" data-name="Picun F6" data-price="10500" data-image="https://m.media-amazon.com/images/I/61+Q6Rh5KIL._AC_UF1000,1000_QL80_.jpg">
+    <img src="https://m.media-amazon.com/images/I/61+Q6Rh5KIL._AC_UF1000,1000_QL80_.jpg" alt="Picun F6">
+    <h3>Picun F6</h3>
+    <p>Накладные наушники с ANC, 40 мм динамиками и временем работы до 35 часов.</p>
+    <p class="price">10,500 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+
+<!-- AirTag (4 шт.) -->
+<div class="product animate-on-scroll" data-id="10" data-name="AirTag (4 шт.)" data-price="10900" data-image="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airtag-double-select-202104?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1617761671000">
+    <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airtag-double-select-202104?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1617761671000" alt="AirTag">
+    <h3>AirTag (4 шт.)</h3>
+    <p>Трекеры для поиска вещей с точностью до сантиметров в сети Find My.</p>
+    <p class="price">10,900 руб.</p>
+    <button class="btn add-to-cart">Купить</button>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta animate-on-scroll">
+<div class="cta-container">
+<h2>Нужна консультация?</h2>
+<p>Наши специалисты помогут вам выбрать идеальное устройство Apple для ваших задач</p>
+<a href="#contact" class="btn btn-primary">Связаться с нами</a>
+</div>
+</section>
+
+<!-- Контакты -->
+<section id="contact" class="container">
+<div class="contact-info animate-on-scroll">
+<h2>Контакты</h2>
+<p><strong> Адрес:</strong> г. Нефтеюганск, ул. Центральная, 25 (ТЦ "Сити Молл", 2 этаж)</p>
+<p><strong> Telegram:</strong> <a href="https://t.me/AppleHub_86" target="_blank">applehub_neft</a></p>
+<p><strong> Телефон:</strong> +7 (900) 777-77-77</p>
+<p><strong> Режим работы:</strong> Пн-Пт: 10:00-20:00, Сб-Вс: 11:00-18:00</p>
+<div style="margin-top: 25px;">
+    <a href="tel:+79007777777" style="color: #ffffff;" class="btn">Позвонить нам</a>
+</div>
+</div>
+</section>
+</div>
+
+<!-- Модальное окно корзины -->
+<div id="cartModal" class="modal">
+<div class="modal-content">
+<span class="close">&times;</span>
+<h2>Ваша корзина</h2>
+<div class="cart-items" id="cartItems">
+<!-- Товары будут добавляться сюда -->
+</div>
+<div class="cart-total">
+Итого: <span id="cartTotal">0</span> руб.
+</div>
+<button class="btn" style="width: 100%; margin-top: 20px;">Оформить заказ</button>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2025 AppleHub. Все права защищены.</p>
+<p>Официальный партнер Apple в Нефтеюганске</p>
+</footer>
+
+<script>
+// Корзина
+let cart = [];
+const cartButton = document.getElementById('cartButton');
+const cartModal = document.getElementById('cartModal');
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+const closeBtn = document.querySelector('.close');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const header = document.getElementById('mainHeader');
+
+// Открытие/закрытие модального окна
+cartButton.addEventListener('click', () => {
+cartModal.style.display = 'block';
+updateCartModal();
+});
+
+closeBtn.addEventListener('click', () => {
+cartModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+if (e.target === cartModal) {
+cartModal.style.display = 'none';
+}
+});
+
+// Добавление товара в корзину
+addToCartButtons.forEach(button => {
+button.addEventListener('click', (e) => {
+const productElement = e.target.closest('.product');
+const productId = productElement.dataset.id;
+const productName = productElement.dataset.name;
+const productPrice = parseInt(productElement.dataset.price);
+const productImage = productElement.dataset.image;
+
+// Проверяем, есть ли товар уже в корзине
+const existingItem = cart.find(item => item.id === productId);
+
+if (existingItem) {
+    existingItem.quantity += 1;
+} else {
+    cart.push({
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImage,
+        quantity: 1
+    });
+}
+
+updateCartCount();
+
+// Анимация добавления
+e.target.textContent = 'Добавлено!';
+e.target.style.backgroundColor = '#4CAF50';
+setTimeout(() => {
+    e.target.textContent = 'Купить';
+    e.target.style.backgroundColor = '';
+}, 1000);
+});
+});
+
+// Обновление счетчика корзины
+function updateCartCount() {
+const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+cartCount.textContent = totalItems;
+
+// Анимация корзины
+cartButton.style.transform = 'scale(1.1)';
+setTimeout(() => {
+cartButton.style.transform = '';
+}, 300);
+}
+
+// Обновление модального окна корзины
+function updateCartModal() {
+cartItems.innerHTML = '';
+
+if (cart.length === 0) {
+cartItems.innerHTML = '<p style="text-align: center; padding: 20px;">Ваша корзина пуста</p>';
+cartTotal.textContent = '0';
+return;
+}
+
+let total = 0;
+
+cart.forEach(item => {
+const itemTotal = item.price * item.quantity;
+total += itemTotal;
+
+const itemElement = document.createElement('div');
+itemElement.className = 'cart-item';
+itemElement.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
+    <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <div>
+            <span>${item.quantity} × </span>
+            <span class="cart-item-price">${item.price.toLocaleString()} руб.</span>
+        </div>
+    </div>
+    <button class="remove-item" data-id="${item.id}">×</button>
+`;
+
+cartItems.appendChild(itemElement);
+});
+
+cartTotal.textContent = total.toLocaleString();
+
+// Добавляем обработчики для кнопок удаления
+document.querySelectorAll('.remove-item').forEach(button => {
+button.addEventListener('click', (e) => {
+    const itemId = e.target.dataset.id;
+    cart = cart.filter(item => item.id !== itemId);
+    updateCartCount();
+    updateCartModal();
+});
+});
+}
+
+// Анимация при прокрутке
+const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+    entry.target.classList.add('visible');
+}
+});
+}, {
+threshold: 0.1
+});
+
+animateElements.forEach(element => {
+observer.observe(element);
+});
+
+// Плавная прокрутка для якорей
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+    window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+    });
+}
+});
+});
+
+// Изменение хедера при скролле
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+header.classList.add('scrolled');
+} else {
+header.classList.remove('scrolled');
+}
+});
+// Поиск товаров с улучшенной функциональностью
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
+const products = document.querySelectorAll('.product');
+const productGrid = document.querySelector('.product-grid');
+
+function performSearch() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    
+    // Если строка поиска пустая - показываем все товары
+    if (!searchTerm) {
+        products.forEach(product => {
+            product.style.display = 'flex';
+        });
+        return;
+    }
+    
+    let hasResults = false;
+    
+    products.forEach(product => {
+        const productName = product.dataset.name.toLowerCase();
+        const productDescription = product.querySelector('p').textContent.toLowerCase();
+        const productPrice = product.querySelector('.price').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || 
+            productDescription.includes(searchTerm) || 
+            productPrice.includes(searchTerm)) {
+            product.style.display = 'flex';
+            hasResults = true;
+        } else {
+            product.style.display = 'none';
+        }
+    });
+    
+    // Если нет результатов - показываем сообщение
+    if (!hasResults) {
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        noResults.innerHTML = `
+            <p>Товары по запросу "<strong>${searchTerm}</strong>" не найдены</p>
+            <button class="btn" id="resetSearch">Показать все товары</button>
+        `;
+        
+        // Удаляем предыдущее сообщение, если было
+        const existingMessage = document.querySelector('.no-results');
+        if (existingMessage) existingMessage.remove();
+        
+        productGrid.appendChild(noResults);
+        
+        // Добавляем обработчик для кнопки сброса
+        document.getElementById('resetSearch').addEventListener('click', () => {
+            searchInput.value = '';
+            performSearch();
+            noResults.remove();
+        });
+    } else {
+        // Удаляем сообщение "нет результатов", если оно есть
+        const existingMessage = document.querySelector('.no-results');
+        if (existingMessage) existingMessage.remove();
+    }
+}
+
+// Инициализация поиска
+searchButton.addEventListener('click', performSearch);
+searchInput.addEventListener('input', performSearch); // Реакция на каждое изменение
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
+
+// При загрузке страницы убедимся, что все товары видны
+window.addEventListener('load', () => {
+    searchInput.value = '';
+    performSearch();
+});
+// В функции performSearch при совпадении:
+product.innerHTML = product.innerHTML.replace(
+    new RegExp(searchTerm, 'gi'), 
+    match => `<span class="highlight">${match}</span>`
+);
+</script>
+</body>
+</html>
